@@ -1,0 +1,69 @@
+body {
+    background: white !important;
+}
+
+.galactic-form-container {
+    width: 700px;
+    margin: auto;
+    padding-top: 50px;
+}
+
+.galactic-results {
+    -webkit-animation: galactic-fadein 2s;  /* Safari & Chrome */
+    -moz-animation: galactic-fadein 2s;     /* Firefox */
+    animation: galactic-fadein 2s;
+}
+
+.galactic-results.one {
+    -webkit-animation: galactic-fadein 1s;  /* Safari & Chrome */
+    -moz-animation: galactic-fadein 1s;     /* Firefox */
+    animation: galactic-fadein 1s;
+}
+
+.galactic-results.two {
+    -webkit-animation: galactic-fadein 2s;  /* Safari & Chrome */
+    -moz-animation: galactic-fadein 2s;     /* Firefox */
+    animation: galactic-fadein 2s;
+}
+
+.galactic-results.three {
+    -webkit-animation: galactic-fadein 3s;  /* Safari & Chrome */
+    -moz-animation: galactic-fadein 3s;     /* Firefox */
+    animation: galactic-fadein 3s;
+}
+
+.galactic-results.four {
+    -webkit-animation: galactic-fadein 4s;  /* Safari & Chrome */
+    -moz-animation: galactic-fadein 4s;     /* Firefox */
+    animation: galactic-fadein 4s;
+}
+
+.galactic-titles {
+    text-align: center;
+    padding-bottom: 50px;
+}
+
+.galactic-h1 {
+    font-size: 4.5em;    
+}
+
+.galactic-muted {
+    font-size: 2.5em;
+}
+
+.btn {
+    width: 100%;
+}
+
+h4 {
+    padding-left: 3em;
+}
+
+@keyframes galactic-fadein {
+    from { 
+        opacity: 0; 
+    }
+    to   { 
+        opacity: 1; 
+    }
+}
