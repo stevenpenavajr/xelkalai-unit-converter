@@ -1,6 +1,7 @@
 #!/usr/bin/python
 
 # Written by Steven Penava
+# CS 316 Project 1
 
 # Establishing HTML type
 print "Content-type: text/html\n\n"
@@ -24,7 +25,7 @@ form = cgi.FieldStorage()
 
 try:
     distX = form["distx"].value
-    unitX = form["unitx"].value         # DO WE HAVE TO VALIDATE NUBMER ENTRY, LIKE 76 RAD NOT VALID? 0 < n < 180 ???
+    unitX = form["unitx"].value 
 
     distY = form["disty"].value
     unitY = form["unity"].value
@@ -40,8 +41,7 @@ except KeyError:
         <div class="galactic-titles galactic-results one">
             <h1 class="galactic-h1">Error!</h1>
             <h3 class="text-muted galactic-muted">Looks like you left one or more fields empty or left out a required parameter with the request.</h3>
-            <br><br>
-            <input type="button" class="btn btn-primary" value="Click here to go back" onclick="history.back(-1)" />
+            <br>
         </div>
     </div>
     '''
@@ -98,8 +98,25 @@ def convert(quantity, sourceUnit, destinationUnit):
 def compute(dist1, dist2, angle):
     return math.sqrt(dist1**2 + dist2**2 - (2 * dist1 * dist2 * math.cos(math.radians(angle))))
 
+# Checking to ensure input is numerical
 try:
+    numCheck1 = float(distX)
+    numCheck2 = float(distY)
+    numCheck3 = float(angleA)
+except ValueError:
+    # Catching erroneous field value(s)
+    print '''
+    <div class="galactic-form-container">
+        <div class="galactic-titles galactic-results one">
+            <h1 class="galactic-h1">Error!</h1>
+            <h3 class="text-muted galactic-muted">Looks like you entered a number incorrectly. No letters or symbols!</h3>
+            <br><br>
+        </div>
+    </div>
+    '''
 
+# Check for bad units
+try:
     answerInput1 = convert(float(distX), unitX, unitAnswer)
     answerInput2 = convert(float(distY), unitY, unitAnswer)
     angleDegrees = convert(float(angleA), unitA, "degree")
@@ -111,7 +128,7 @@ except KeyError:
     <div class="galactic-form-container">
         <div class="galactic-titles galactic-results one">
             <h1 class="galactic-h1">Error!</h1>
-            <h3 class="text-muted galactic-muted">Looks like you tried to use a unit that doesn't exist, a number for a unit, or some other incorrect input.</h3>
+            <h3 class="text-muted galactic-muted">Looks like you tried to use a unit that doesn't exist or some other incorrect input.</h3>
             <br>
             <h1>Possible distance units:</h3>
             <h3 class="text-muted galactic-muted">xlarn</h3>
